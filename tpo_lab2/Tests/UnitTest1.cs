@@ -20,4 +20,10 @@ public class Tests
         
         Assert.AreEqual(resultFullName, expectedResult);
     }
+
+    [Test]
+    public void voidTest()
+    {
+        Assert.Pass();
+    }
 }
