@@ -1,0 +1,213 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\tpo_lab2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\tpo_lab2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\actor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\actor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\crew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\scenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\scenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\crewmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\director.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\director.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\screenwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\screenwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|c:\\users\\swatt\\downloads\\dropbox\\tpo\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FBA39B0-F8B2-4CCB-8899-BC667F6A201C}|tpo_lab2\\tpo_lab2.csproj|solutionrelative:tpo_lab2\\domain\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Repository.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Repository.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Repository.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Repository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:55:39.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "tpo_lab2.csproj",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\tpo_lab2.csproj",
+              "RelativeDocumentMoniker": "tpo_lab2\\tpo_lab2.csproj",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\tpo_lab2.csproj",
+              "RelativeToolTip": "tpo_lab2\\tpo_lab2.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-03T14:54:31.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Cinema.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Cinema.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Cinema.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Cinema.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Cinema.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:52:13.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Movie.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Movie.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Movie.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Movie.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:51:29.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Crew.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Crew.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Crew.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Crew.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Crew.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:50:48.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Scenario.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Scenario.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Scenario.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Scenario.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Scenario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:50:19.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CrewMember.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\CrewMember.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\CrewMember.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\CrewMember.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\CrewMember.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:49:39.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Director.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Director.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Director.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Director.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Director.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:48:31.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Actor.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Actor.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Actor.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Actor.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Actor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:47:43.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Screenwriter.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Screenwriter.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Screenwriter.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Screenwriter.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Screenwriter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:45:50.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Person.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\domain\\Person.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\domain\\Person.cs",
+              "RelativeToolTip": "tpo_lab2\\domain\\Person.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:39:39.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\presentation\\Program.cs",
+              "RelativeDocumentMoniker": "tpo_lab2\\presentation\\Program.cs",
+              "ToolTip": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\presentation\\Program.cs",
+              "RelativeToolTip": "tpo_lab2\\presentation\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T14:14:37.749Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

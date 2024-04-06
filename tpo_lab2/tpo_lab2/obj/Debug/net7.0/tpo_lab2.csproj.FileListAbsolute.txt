@@ -1,0 +1,15 @@
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\bin\Debug\net7.0\tpo_lab2.exe
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\bin\Debug\net7.0\tpo_lab2.deps.json
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\bin\Debug\net7.0\tpo_lab2.runtimeconfig.json
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\bin\Debug\net7.0\tpo_lab2.dll
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\bin\Debug\net7.0\tpo_lab2.pdb
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.AssemblyInfoInputs.cache
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.AssemblyInfo.cs
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.csproj.CoreCompileInputs.cache
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.sourcelink.json
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.dll
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\refint\tpo_lab2.dll
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.pdb
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\tpo_lab2.genruntimeconfig.cache
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\tpo_lab2\obj\Debug\net7.0\ref\tpo_lab2.dll

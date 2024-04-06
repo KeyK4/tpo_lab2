@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "J/0pA2akhyWJGAK5U5SbHocaL7z0PBYrkTYDZGX740lDih4sGYgCbEpPo1EO4SYWsYSe70SLMLDvxH2DUC93YQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\tpo_lab2\\tpo_lab2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\swatt\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\swatt\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.16\\microsoft.windowsdesktop.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\swatt\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.16\\microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\swatt\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.16\\microsoft.netcore.app.host.win-x64.7.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
