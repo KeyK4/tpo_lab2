@@ -48,7 +48,10 @@ jobs:
       run: dotnet build tpo_lab2\tpo_lab2\tpo_lab2.csproj
 
     - name: Run NUnit tests
-      run: nunit3-console tpo_lab2\Tests\bin\Debug\net7.0\Tests.dll --result=TestResult.xml
+      run: |
+        $nunitConsoleExe = "${env:USERPROFILE}\.nuget\packages\nunit.consolerunner\3.12.0\tools\nunit3-console.exe"
+        $testDll = "tpo_lab2\Tests\bin\Debug\net7.0\Tests.dll"
+        & $nunitConsoleExe $testDll --result=TestResult.xml
       
     - name: Upload test results
       uses: actions/upload-artifact@v2
