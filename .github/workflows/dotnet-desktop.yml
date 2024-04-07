@@ -48,7 +48,7 @@ jobs:
       run: dotnet build tpo_lab2\tpo_lab2\tpo_lab2.csproj
 
     - name: Run NUnit tests
-      run: dotnet test tpo_lab2\Tests\Tests.csproj --logger "nunit;LogFilePath=TestResult.xml"
+      run: dotnet test tpo_lab2\Tests\Tests.csproj --logger:"nunit;LogFilePath=TestResult.xml;" --collect:"XPlat Code Coverage"
 
     - name: Upload test results
       uses: actions/upload-artifact@v2
