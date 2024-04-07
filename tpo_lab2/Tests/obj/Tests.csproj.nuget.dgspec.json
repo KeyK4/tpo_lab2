@@ -44,6 +44,12 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "GitHubActionsTestLogger": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.3.3, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.5.0, )"

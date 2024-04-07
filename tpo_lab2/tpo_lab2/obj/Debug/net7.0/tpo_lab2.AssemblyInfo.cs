@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tpo_lab2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c3a1326970a63be727e550b537e85e64b1db14e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5dfc389ebcf7618174b7e9ae76bc6f315598cea9")]
 [assembly: System.Reflection.AssemblyProductAttribute("tpo_lab2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tpo_lab2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
