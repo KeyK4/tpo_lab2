@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace tpo_lab2.domain
 {
-    internal class Director : Person
+    public class Director : CrewMember
     {
+        public Director(string name, string surname, string patronymic) : base(name, surname, patronymic)
+        {
+        }
+
+        public Actor cast(Personage personage)
+        {
+            return new Actor(Person.getRandomPerson());
+        }
     }
 }

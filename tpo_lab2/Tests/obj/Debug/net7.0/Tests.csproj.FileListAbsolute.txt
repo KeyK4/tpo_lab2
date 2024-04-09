@@ -104,3 +104,4 @@ C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\Tests\obj\Debug\net
 C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\Tests\obj\Debug\net7.0\Tests.pdb
 C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\Tests\obj\Debug\net7.0\Tests.genruntimeconfig.cache
 C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\Tests\obj\Debug\net7.0\ref\Tests.dll
+C:\Users\swatt\Downloads\DropBox\TPO\laba2\tpo_lab2\tpo_lab2\Tests\bin\Debug\net7.0\GitHubActionsTestLogger.dll

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace tpo_lab2.domain
 {
-    internal class Actor : Person
+    public class Actor : CrewMember
     {
+        public Actor(string name, string surname, string patronymic) : base(name, surname, patronymic)
+        {
+        }
+
+        public Actor(Person person) : base(person.name, person.surname, person.patronymic){}
     }
 }

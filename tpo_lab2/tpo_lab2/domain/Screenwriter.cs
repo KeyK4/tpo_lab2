@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace tpo_lab2.domain
 {
-    internal class Screenwriter : Person
+    public class Screenwriter : CrewMember
     {
+        public Screenwriter(string name, string surname, string patronymic) : base(name, surname, patronymic)
+        {
+        }
     }
 }

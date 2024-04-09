@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J7eIMjnbgtyUK/jj3OnPWqWDJLL3g4CE2gCnU8of2vvvjKnZ520mT8SUnyvyqEDRqZzJ+HuUSwxKULXzoG2WWA==",
+  "dgSpecHash": "s9ztf12IKyx30CA48Emv/k/DOhoM6dzYpoqYev915Ev8sZZVjhB8jUKEaDX14NSek9Udo7HqoBFGnq7sQ8BDAw==",
   "success": true,
   "projectFilePath": "C:\\Users\\swatt\\Downloads\\DropBox\\TPO\\laba2\\tpo_lab2\\tpo_lab2\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
@@ -16,13 +16,6 @@
     "C:\\Users\\swatt\\.nuget\\packages\\nuget.frameworks\\6.5.0\\nuget.frameworks.6.5.0.nupkg.sha512",
     "C:\\Users\\swatt\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
     "C:\\Users\\swatt\\.nuget\\packages\\nunit.analyzers\\3.6.1\\nunit.analyzers.3.6.1.nupkg.sha512",
-    "C:\\Users\\swatt\\.nuget\\packages\\nunit.console\\3.17.0\\nunit.console.3.17.0.nupkg.sha512",
-    "C:\\Users\\swatt\\.nuget\\packages\\nunit.consolerunner\\3.17.0\\nunit.consolerunner.3.17.0.nupkg.sha512",
-    "C:\\Users\\swatt\\.nuget\\packages\\nunit.extension.nunitprojectloader\\3.6.0\\nunit.extension.nunitprojectloader.3.6.0.nupkg.sha512",
-    "C:\\Users\\swatt\\.nuget\\packages\\nunit.extension.nunitv2driver\\3.8.0\\nunit.extension.nunitv2driver.3.8.0.nupkg.sha512",
-    "C:\\Users\\swatt\\.nuget\\packages\\nunit.extension.nunitv2resultwriter\\3.6.0\\nunit.extension.nunitv2resultwriter.3.6.0.nupkg.sha512",
-    "C:\\Users\\swatt\\.nuget\\packages\\nunit.extension.teamcityeventlistener\\1.0.7\\nunit.extension.teamcityeventlistener.1.0.7.nupkg.sha512",
-    "C:\\Users\\swatt\\.nuget\\packages\\nunit.extension.vsprojectloader\\3.8.0\\nunit.extension.vsprojectloader.3.8.0.nupkg.sha512",
     "C:\\Users\\swatt\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512",
     "C:\\Users\\swatt\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
     "C:\\Users\\swatt\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",

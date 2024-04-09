@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace tpo_lab2.domain
 {
-    internal interface Repository
+    internal interface IRepository
     {
         void writeScenario(Scenario scenario, Screenwriter screenwriter, String genre, String theme);
-        List<Actor> cast(Scenario scenario, Director director);
-        void crewUp(Crew crew, List<CrewMember> crewMembers, Director director, List<Actor> actors);
-        void makeMovie(Movie movie, Crew crew);
+        Dictionary<Personage, Actor> cast(Scenario scenario, Director director);
+        Movie makeMovie(Crew crew, Scenario scenario);
         void release(List<Cinema> cinemas, Movie movie);
-
     }
 }
