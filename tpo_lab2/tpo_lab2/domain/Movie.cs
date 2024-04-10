@@ -15,8 +15,7 @@ namespace tpo_lab2.domain
 
         public enum MovieState
         {
-            NotStarted,
-            AtWork,
+            NotReady,
             Finished
         }
 
@@ -25,7 +24,7 @@ namespace tpo_lab2.domain
         public Movie(Scenario scenario)
         {
             this.scenario = scenario;
-            state = MovieState.NotStarted;
+            state = MovieState.NotReady;
         }
         
         public void film()
@@ -45,8 +44,19 @@ namespace tpo_lab2.domain
                 actor.setBusy();
             }
             crew.director.setBusy();
-            state = MovieState.AtWork;
-            Thread.Sleep(6000);
+
+
+            for (int i = 0; i < 2000; i++)
+            {
+                int randomIndex = Random.Shared.Next(0, scenario.personages.Count);
+                scenario.personages[randomIndex].changeState();
+            }
+            foreach (var personage in scenario.personages)
+            {
+                personage.setOffCameraState();
+            }
+            
+            
             state = MovieState.Finished;
             duration = Random.Shared.Next(20, 180);
             

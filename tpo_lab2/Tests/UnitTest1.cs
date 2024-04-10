@@ -41,14 +41,18 @@ public class Tests
         Personage personageFromBaseConstructor = new Personage(name, surname, patronymic);
         Person person = new Person(name, surname, patronymic);
         Personage personageFromPerson = new Personage(person);
+
+        Personage.State expectedState = Personage.State.OffCamera;
         
         Assert.AreEqual(personageFromBaseConstructor.name, name);
         Assert.AreEqual(personageFromBaseConstructor.surname, surname);
         Assert.AreEqual(personageFromBaseConstructor.patronymic, patronymic);
+        Assert.AreEqual(expectedState, personageFromBaseConstructor.state);
         
         Assert.AreEqual(personageFromPerson.name, name);
         Assert.AreEqual(personageFromPerson.surname, surname);
         Assert.AreEqual(personageFromPerson.patronymic, patronymic);
+        Assert.AreEqual(expectedState, personageFromPerson.state);
     }
 
     [Test]
@@ -85,7 +89,7 @@ public class Tests
         Assert.AreEqual(scenario.screenwriter, null);
         Assert.AreEqual(scenario.genre, null);
         Assert.AreEqual(scenario.personages, null);
-        Assert.AreEqual(scenario.state, Scenario.ScenarioState.NotStarted);
+        Assert.AreEqual(scenario.state, Scenario.ScenarioState.NotReady);
 
         string genre = "genre";
         string theme = "theme";
@@ -144,7 +148,7 @@ public class Tests
         
         Assert.AreEqual(crew, movie.crew);
         Assert.AreEqual(scenario, movie.scenario);
-        Assert.AreEqual(Movie.MovieState.NotStarted, movie.state);
+        Assert.AreEqual(Movie.MovieState.NotReady, movie.state);
     }
 
     [Test]
@@ -254,6 +258,48 @@ public class Tests
             string expectedMessage = "Член команды уже свободен";
             Assert.AreEqual(expectedMessage, e.Message);
         }
+    }
+
+    [Test]
+    public void PersonageChangeStateMethodTest()
+    {
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+
+        Personage personage = new Personage(name, surname, patronymic);
+        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        
+        personage.changeState();
+        
+        Assert.AreEqual(Personage.State.OnCamera, personage.state);
+        
+        personage.changeState();
+        
+        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+    }
+
+    [Test]
+    public void PersonageSetOffCameraStateMethodTest()
+    {
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+
+        Personage personage = new Personage(name, surname, patronymic);
+        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        
+        personage.changeState();
+        
+        Assert.AreEqual(Personage.State.OnCamera, personage.state);
+        
+        personage.setOffCameraState();
+        
+        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        
+        personage.setOffCameraState();
+        
+        Assert.AreEqual(Personage.State.OffCamera, personage.state);
     }
 
     [Test]
@@ -520,7 +566,12 @@ public class Tests
     [Test]
     public void MovieFilmMethodTest()
     {
-        Scenario scenario = new Scenario("name");
+        string scenName = "Some Movie 2";
+        Scenario scenario = new Scenario(scenName);
+        scenario.theme = "theme";
+        scenario.genre = "genre";
+        scenario.screenwriter = new Screenwriter("n", "s", "p");
+        scenario.write();
         String name = "name";
         String surname = "surname";
         String patronymic = "patronymic";

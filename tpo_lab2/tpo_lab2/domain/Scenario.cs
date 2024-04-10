@@ -14,7 +14,7 @@ namespace tpo_lab2.domain
             theme = null;
             genre = null;
             screenwriter = null;
-            state = ScenarioState.NotStarted;
+            state = ScenarioState.NotReady;
         }
         
         private Scenario(){}
@@ -28,8 +28,7 @@ namespace tpo_lab2.domain
 
         public enum ScenarioState
         {
-            NotStarted,
-            AtWork,
+            NotReady,
             Finished
         }
 
@@ -50,7 +49,6 @@ namespace tpo_lab2.domain
                 throw new MissingFieldException("Screenwriter is null!");
             }
             screenwriter.setBusy();
-            state = ScenarioState.AtWork;
             personages = generatePersonages();
             Thread.Sleep(5000);
             state = ScenarioState.Finished;

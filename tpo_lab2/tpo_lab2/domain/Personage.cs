@@ -10,8 +10,37 @@ namespace tpo_lab2.domain
     {
         public Personage(string name, string surname, string patronymic) : base(name, surname, patronymic)
         {
+            state = State.OffCamera;
         }
-        
-        public Personage(Person person): base(person.name, person.surname, person.patronymic){}
+
+        public Personage(Person person) : base(person.name, person.surname, person.patronymic)
+        {
+            state = State.OffCamera;
+        }
+
+        public State state { get; private set; }
+
+        public enum State
+        {
+            OnCamera,
+            OffCamera
+        }
+
+        public void changeState()
+        {
+            if (state == State.OffCamera)
+            {
+                state = State.OnCamera;
+            }
+            else
+            {
+                state = State.OffCamera;
+            }
+        }
+
+        public void setOffCameraState()
+        {
+            state = State.OffCamera;
+        }
     }
 }
