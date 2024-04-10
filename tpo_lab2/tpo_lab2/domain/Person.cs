@@ -12,6 +12,8 @@ public class Person
         this.surname = surname;
         this.patronymic = patronymic;
     }
+    
+    private Person(){}
 
     public string toStringName()
     {

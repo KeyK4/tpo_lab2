@@ -24,21 +24,21 @@ namespace tpo_lab2.domain
         
         public string getСredits()
         {
-            string credits = $"Directed by {director.toStringName()}\n"
-                             + $"Written by {screenwriter.toStringName()}\n"
-                             + $"Starring: \n";
+            string credits = $"Режиссер: {director.toStringName()}\n"
+                             + $"Автор сценария: {screenwriter.toStringName()}\n"
+                             + $"В ролях: \n";
             foreach (var role in roles)
             {
                 var personage = role.Key;
                 var actor = role.Value;
-                credits += $"{personage.toStringName()}: {actor.toStringName()}";
+                credits += $"{personage.toStringName()}: {actor.toStringName()}\n";
             }
 
-            credits += "Stuff";
+            credits += "Съемочная группа: \n";
 
             foreach (var crewMember in crewMembers)
             {
-                credits += $"{crewMember.toStringName()}";
+                credits += $"{crewMember.toStringName()}\n";
             }
 
             return credits;

@@ -14,7 +14,7 @@ namespace tpo_lab2.domain
 
         public Actor cast(Personage personage)
         {
-            return new Actor(Person.getRandomPerson());
+            return new Actor(getRandomPerson());
         }
     }
 }

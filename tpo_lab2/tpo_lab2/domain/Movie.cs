@@ -61,7 +61,5 @@ namespace tpo_lab2.domain
             }
             crew.director.setFree();
         }
-        
-        
     }
 }

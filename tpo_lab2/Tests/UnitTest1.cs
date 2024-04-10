@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using NuGet.Frameworks;
 
 namespace Tests;
@@ -162,7 +163,7 @@ public class Tests
     }
 
     [Test]
-    public void PersonMethodGetRandomPersonTest()
+    public void PersonGetRandomPersonMethodTest()
     {
         Person randomPerson = Person.getRandomPerson();
 
@@ -179,7 +180,7 @@ public class Tests
     }
 
     [Test]
-    public void PersonMethodToStringNameTest()
+    public void PersonToStringNameMethodTest()
     {
         Person person = Person.getRandomPerson();
 
@@ -191,7 +192,7 @@ public class Tests
     }
 
     [Test]
-    public void CrewMemberSetBusyWhenFreeTest()
+    public void CrewMemberSetBusyWhenFreeMethodTest()
     {
         CrewMember crewMember = new CrewMember("name", "surname", "patronymic");
         
@@ -203,7 +204,7 @@ public class Tests
     }
     
     [Test]
-    public void CrewMemberSetBusyWhenAlreadyBusyTest()
+    public void CrewMemberSetBusyWhenAlreadyBusyMethodTest()
     {
         CrewMember crewMember = new CrewMember("name", "surname", "patronymic");
         
@@ -224,7 +225,7 @@ public class Tests
     }
     
     [Test]
-    public void CrewMemberSetFreeWhenBusyTest()
+    public void CrewMemberSetFreeWhenBusyMethodTest()
     {
         CrewMember crewMember = new CrewMember("name", "surname", "patronymic");
         crewMember.setBusy();
@@ -237,7 +238,7 @@ public class Tests
     }
     
     [Test]
-    public void CrewMemberSetFreeWhenAlreadyFreeTest()
+    public void CrewMemberSetFreeWhenAlreadyFreeMethodTest()
     {
         CrewMember crewMember = new CrewMember("name", "surname", "patronymic");
         
@@ -252,6 +253,316 @@ public class Tests
         {
             string expectedMessage = "Член команды уже свободен";
             Assert.AreEqual(expectedMessage, e.Message);
+        }
+    }
+
+    [Test]
+    public void DirectorCastMethodTest()
+    {
+        Director director = new Director("n", "s", "p");
+        Personage personage = new Personage("n", "s", "p");
+
+        Actor actor = director.cast(personage);
+        
+        Assert.True(Person.posibleNames.Contains(actor.name));
+        Assert.True(Person.posibleSurname.Contains(actor.surname));
+        Assert.True(Person.posiblePatronymics.Contains(actor.patronymic));
+    }
+
+    [Test]
+    public void CinemaAddMovieMethodTest()
+    {
+        Scenario scenario = new Scenario("name");
+        Movie movie = new Movie(scenario);
+        string cinemaName = "cinemaName";
+        uint maxNumberOfFilms = 20;
+        Cinema cinema = new Cinema(cinemaName, maxNumberOfFilms);
+        
+        Assert.False(cinema.movies.Contains(movie));
+        cinema.addMovie(movie);
+        Assert.True(cinema.movies.Contains(movie));
+    }
+
+    [Test]
+    public void CinemaAddMovieWithOverloadMethodTest()
+    {
+        Scenario scenario = new Scenario("name");
+        Movie movie = new Movie(scenario);
+        string cinemaName = "cinemaName";
+        uint maxNumberOfFilms = 5;
+        Cinema cinema = new Cinema(cinemaName, maxNumberOfFilms);
+
+        var methodCall = () => { cinema.addMovie(movie);};
+        
+        for (int i = 0; i < maxNumberOfFilms; i++)
+        {
+            methodCall();
+        }
+
+        TestDelegate testDelegate = new TestDelegate(methodCall);
+
+        Assert.Catch(testDelegate);
+        try
+        {
+            methodCall();
+        }
+        catch (Exception e)
+        {
+            Assert.AreEqual("Превышено максимальное количество фильмов в кинотеатре", e.Message);
+        }
+    }
+
+    [Test]
+    public void CinemaSetClosedWhenOpenMethodTest()
+    {
+        string cinemaName = "cinemaName";
+        uint maxNumberOfFilms = 5;
+        Cinema cinema = new Cinema(cinemaName, maxNumberOfFilms);
+        
+        Assert.AreEqual(Cinema.CinemaState.Open, cinema.state);
+        
+        cinema.setClosed();
+        
+        Assert.AreEqual(Cinema.CinemaState.Closed, cinema.state);
+    }
+    
+    [Test]
+    public void CinemaSetClosedWhenAlreadyClosedMethodTest()
+    {
+        string cinemaName = "cinemaName";
+        uint maxNumberOfFilms = 5;
+        Cinema cinema = new Cinema(cinemaName, maxNumberOfFilms);
+        
+        cinema.setClosed();
+        
+        Assert.AreEqual(Cinema.CinemaState.Closed, cinema.state);
+
+        Assert.Catch(cinema.setClosed);
+        try
+        {
+            cinema.setClosed();
+        }
+        catch (Cinema.WrongStateException e)
+        {
+            string expectedMessage = "Кинотеатр уже закрыт";
+            Assert.AreEqual(expectedMessage, e.Message);
+        }
+    }
+    
+    [Test]
+    public void CinemaSetOpenWhenClosedMethodTest()
+    {
+        string cinemaName = "cinemaName";
+        uint maxNumberOfFilms = 5;
+        Cinema cinema = new Cinema(cinemaName, maxNumberOfFilms);
+        cinema.setClosed();
+        
+        Assert.AreEqual(Cinema.CinemaState.Closed, cinema.state);
+        
+        cinema.setOpen();
+        
+        Assert.AreEqual(Cinema.CinemaState.Open, cinema.state);
+    }
+    
+    [Test]
+    public void CinemaSetOpenWhenAlreadyOpenMethodTest()
+    {
+        string cinemaName = "cinemaName";
+        uint maxNumberOfFilms = 5;
+        Cinema cinema = new Cinema(cinemaName, maxNumberOfFilms);
+        
+        Assert.AreEqual(Cinema.CinemaState.Open, cinema.state);
+
+        Assert.Catch(cinema.setOpen);
+        try
+        {
+            cinema.setOpen();
+        }
+        catch (Cinema.WrongStateException e)
+        {
+            string expectedMessage = "Кинотеатр уже открыт";
+            Assert.AreEqual(expectedMessage, e.Message);
+        }
+    }
+
+    [Test]
+    public void CrewGetCreditsMethodTest()
+    {
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+
+        //TODO: Переделать на константы
+        
+        Director director = new Director("Режиссер", "Режиссеров", "Режиссерович");
+        Screenwriter screenwriter = new Screenwriter("Сценарист", "Сценаристов", "Сценарстович");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>()
+        {
+            {new Personage("Персонаж", "Первый", "Pers"),
+                new Actor("Актер", "Первый", "Act")},
+            {new Personage("Персонаж", "Второй", "Pers"),
+                new Actor("Актер", "Второй", "Act")}
+        };
+        List<CrewMember> crewMembers = new List<CrewMember>()
+        {
+            new ("Оператор", "Операторов", "Операторович"),
+            new ("Звукорежиссер", "Звукорежиссеров", "Звукорежиссерович"),
+        };
+
+        Crew crew = new Crew(director, screenwriter, roles, crewMembers);
+
+        string expectedCredits = "Режиссер: Режиссер Режиссеров\n" + 
+                                "Автор сценария: Сценарист Сценаристов\n" +
+                                "В ролях: \n" +
+                                "Персонаж Первый: Актер Первый\n" +
+                                "Персонаж Второй: Актер Второй\n" +
+                                "Съемочная группа: \n" +
+                                "Оператор Операторов\n" +
+                                "Звукорежиссер Звукорежиссеров\n";
+
+        string actualCredits = crew.getСredits();
+        
+        Assert.AreEqual(expectedCredits, actualCredits);
+    }
+
+    [Test]
+    public void ScenarioWriteMethodTest()
+    {
+        string name = "Some Movie 2";
+        Scenario scenario = new Scenario(name);
+        scenario.theme = "theme";
+        scenario.genre = "genre";
+        scenario.screenwriter = new Screenwriter("n", "s", "p");
+        scenario.write();
+        Assert.AreEqual(Scenario.ScenarioState.Finished, scenario.state);
+        Assert.True(scenario.personages.Count != 0);
+    }
+
+    [Test]
+    public void ScenarioWriteWithoutThemeMethodTest()
+    {
+        string name = "Some Movie 2";
+        Scenario scenario = new Scenario(name);
+        scenario.genre = "genre";
+        scenario.screenwriter = new Screenwriter("n", "s", "p");
+        Assert.Catch(scenario.write);
+        try
+        {
+            scenario.write();
+        }
+        catch (MissingFieldException e)
+        {
+            string expectedMessage = "Theme is null!";
+            
+            Assert.AreEqual(expectedMessage, e.Message);
+        }
+    }
+    
+    [Test]
+    public void ScenarioWriteWithoutGenreMethodTest()
+    {
+        string name = "Some Movie 2";
+        Scenario scenario = new Scenario(name);
+        scenario.theme = "theme";
+        scenario.screenwriter = new Screenwriter("n", "s", "p");
+        Assert.Catch(scenario.write);
+        try
+        {
+            scenario.write();
+        }
+        catch (MissingFieldException e)
+        {
+            string expectedMessage = "Genre is null!";
+            
+            Assert.AreEqual(expectedMessage, e.Message);
+        }
+    }
+    
+    [Test]
+    public void ScenarioWriteWithoutScreenwriterMethodTest()
+    {
+        string name = "Some Movie 2";
+        Scenario scenario = new Scenario(name);
+        scenario.theme = "theme";
+        scenario.genre = "genre";
+        Assert.Catch(scenario.write);
+        try
+        {
+            scenario.write();
+        }
+        catch (MissingFieldException e)
+        {
+            string expectedMessage = "Screenwriter is null!";
+            
+            Assert.AreEqual(expectedMessage, e.Message);
+        }
+    }
+
+    [Test]
+    public void ScenarioGeneratePersonages()
+    {
+        string name = "Some Movie 2";
+        Scenario scenario = new Scenario(name);
+        int maxCountPers = 100;
+        int minCountPers = 30;
+        
+        List<Personage> actualPersonages = scenario.generatePersonages();
+        int personagesCount = actualPersonages.Count;
+        
+        Assert.Less(minCountPers, personagesCount);
+        Assert.Greater(maxCountPers, personagesCount);
+
+        Personage firstPersonage = actualPersonages[0];
+        int firstPersonageCount = actualPersonages.Count(personage => { return personage == firstPersonage; });
+        Assert.Less(firstPersonageCount, personagesCount);
+    }
+
+    [Test]
+    public void MovieFilmMethodTest()
+    {
+        Scenario scenario = new Scenario("name");
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+        Director director = new Director(name+"Dir", surname+"Dir", patronymic+"Dir");
+        Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
+        List<CrewMember> crewMembers = new List<CrewMember>();
+        Crew crew = new Crew(director, screenwriter, roles, crewMembers);
+
+        Movie movie = new Movie(scenario);
+        movie.crew = crew;
+        
+        movie.film();
+
+        int maxExpectedDuration = 180;
+        int minExpectedDuration = 20;
+        Movie.MovieState expectedState = Movie.MovieState.Finished;
+        
+        Assert.GreaterOrEqual(maxExpectedDuration, movie.duration);
+        Assert.LessOrEqual(minExpectedDuration, movie.duration);
+        Assert.AreEqual(expectedState, movie.state);
+    }
+
+    [Test]
+    public void MovieFilmWithoutCrewMethodTest()
+    {
+        Scenario scenario = new Scenario("name");
+
+        Movie movie = new Movie(scenario);
+
+        Assert.Catch(movie.film);
+
+        try
+        {
+            movie.film();
+        }
+        catch (MissingFieldException e)
+        {
+            string expectedMessage = "Crew is null!";
+            string actualMessage = e.Message;
+            
+            Assert.AreEqual(expectedMessage, actualMessage);
         }
     }
 }
