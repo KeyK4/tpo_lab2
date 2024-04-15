@@ -1,5 +1,6 @@
 using System.Reflection.Metadata.Ecma335;
 using NuGet.Frameworks;
+using tpo_lab2.data;
 
 namespace Tests;
 using tpo_lab2.domain;
@@ -42,7 +43,7 @@ public class Tests
         Person person = new Person(name, surname, patronymic);
         Personage personageFromPerson = new Personage(person);
 
-        Personage.State expectedState = Personage.State.OffCamera;
+        Personage.PersState expectedState = Personage.PersState.OffCamera;
         
         Assert.AreEqual(personageFromBaseConstructor.name, name);
         Assert.AreEqual(personageFromBaseConstructor.surname, surname);
@@ -122,12 +123,17 @@ public class Tests
             new (name+"CM", surname+"CM", patronymic+"CM")
         };
 
-        Crew crew = new Crew(director, screenwriter, roles, crewMembers);
+        Crew crew = new Crew();
+        
+        Assert.AreEqual(Crew.CrewState.NotCompleted, crew.state);
+        
+        crew.crewUp(director, screenwriter, roles, crewMembers);
         
         Assert.AreEqual(crew.director , director);
         Assert.AreEqual(crew.screenwriter , screenwriter);
         Assert.AreEqual(crew.roles , roles);
         Assert.AreEqual(crew.crewMembers , crewMembers);
+        Assert.AreEqual(Crew.CrewState.Completed, crew.state);
     }
 
     [Test]
@@ -141,7 +147,8 @@ public class Tests
         Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
         Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
         List<CrewMember> crewMembers = new List<CrewMember>();
-        Crew crew = new Crew(director, screenwriter, roles, crewMembers);
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
 
         Movie movie = new Movie(scenario);
         movie.crew = crew;
@@ -268,15 +275,15 @@ public class Tests
         String patronymic = "patronymic";
 
         Personage personage = new Personage(name, surname, patronymic);
-        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        Assert.AreEqual(Personage.PersState.OffCamera, personage.state);
         
         personage.changeState();
         
-        Assert.AreEqual(Personage.State.OnCamera, personage.state);
+        Assert.AreEqual(Personage.PersState.OnCamera, personage.state);
         
         personage.changeState();
         
-        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        Assert.AreEqual(Personage.PersState.OffCamera, personage.state);
     }
 
     [Test]
@@ -287,19 +294,19 @@ public class Tests
         String patronymic = "patronymic";
 
         Personage personage = new Personage(name, surname, patronymic);
-        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        Assert.AreEqual(Personage.PersState.OffCamera, personage.state);
         
         personage.changeState();
         
-        Assert.AreEqual(Personage.State.OnCamera, personage.state);
+        Assert.AreEqual(Personage.PersState.OnCamera, personage.state);
         
         personage.setOffCameraState();
         
-        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        Assert.AreEqual(Personage.PersState.OffCamera, personage.state);
         
         personage.setOffCameraState();
         
-        Assert.AreEqual(Personage.State.OffCamera, personage.state);
+        Assert.AreEqual(Personage.PersState.OffCamera, personage.state);
     }
 
     [Test]
@@ -432,6 +439,40 @@ public class Tests
     }
 
     [Test]
+    public void CrewCrewUpMethodTest()
+    {
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+
+        //TODO: Переделать на константы
+        
+        Director director = new Director("Режиссер", "Режиссеров", "Режиссерович");
+        Screenwriter screenwriter = new Screenwriter("Сценарист", "Сценаристов", "Сценарстович");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>()
+        {
+            {new Personage("Персонаж", "Первый", "Pers"),
+                new Actor("Актер", "Первый", "Act")},
+            {new Personage("Персонаж", "Второй", "Pers"),
+                new Actor("Актер", "Второй", "Act")}
+        };
+        List<CrewMember> crewMembers = new List<CrewMember>()
+        {
+            new ("Оператор", "Операторов", "Операторович"),
+            new ("Звукорежиссер", "Звукорежиссеров", "Звукорежиссерович"),
+        };
+
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
+        
+        Assert.AreEqual(director, crew.director);
+        Assert.AreEqual(screenwriter, crew.screenwriter);
+        Assert.AreEqual(roles, crew.roles);
+        Assert.AreEqual(crewMembers, crew.crewMembers);
+        Assert.AreEqual(Crew.CrewState.Completed, crew.state);
+    }
+
+    [Test]
     public void CrewGetCreditsMethodTest()
     {
         String name = "name";
@@ -455,7 +496,8 @@ public class Tests
             new ("Звукорежиссер", "Звукорежиссеров", "Звукорежиссерович"),
         };
 
-        Crew crew = new Crew(director, screenwriter, roles, crewMembers);
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
 
         string expectedCredits = "Режиссер: Режиссер Режиссеров\n" + 
                                 "Автор сценария: Сценарист Сценаристов\n" +
@@ -469,6 +511,118 @@ public class Tests
         string actualCredits = crew.getСredits();
         
         Assert.AreEqual(expectedCredits, actualCredits);
+    }
+
+    [Test]
+    public void CrewSetBusyMethodTest()
+    {
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+
+        //TODO: Переделать на константы
+        
+        Director director = new Director("Режиссер", "Режиссеров", "Режиссерович");
+        Screenwriter screenwriter = new Screenwriter("Сценарист", "Сценаристов", "Сценарстович");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>()
+        {
+            {new Personage("Персонаж", "Первый", "Pers"),
+                new Actor("Актер", "Первый", "Act")},
+            {new Personage("Персонаж", "Второй", "Pers"),
+                new Actor("Актер", "Второй", "Act")}
+        };
+        List<CrewMember> crewMembers = new List<CrewMember>()
+        {
+            new("Оператор", "Операторов", "Операторович"),
+            new("Звукорежиссер", "Звукорежиссеров", "Звукорежиссерович"),
+        };
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
+        
+        crew.setBusy();
+        
+        foreach (var crewMember in crew.crewMembers)
+        {
+            Assert.AreEqual(CrewMember.State.Busy, crewMember.state);
+        }
+        foreach (var person2actor in roles)
+        {
+            var actor = person2actor.Value;
+            Assert.AreEqual(CrewMember.State.Busy, actor.state);
+        }
+        Assert.AreEqual(CrewMember.State.Busy, director.state);
+    }
+
+    [Test]
+    public void CrewSetBusyWithNotCompletedCrewMethodTest()
+    {
+        Crew crew = new Crew();
+        Assert.Catch(crew.setBusy);
+        
+        try
+        {
+            crew.setBusy();
+        }
+        catch (Exception e)
+        {
+            string expectedExceptionMessage = "Команда не была собрана";
+            string actualExceptionMessage = e.Message;
+            
+            Assert.AreEqual(expectedExceptionMessage, actualExceptionMessage);
+        }
+    }
+
+    [Test]
+    public void CrewDisbandMethodTest()
+    {
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+
+        //TODO: Переделать на константы
+        
+        Director director = new Director("Режиссер", "Режиссеров", "Режиссерович");
+        Screenwriter screenwriter = new Screenwriter("Сценарист", "Сценаристов", "Сценарстович");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>()
+        {
+            {new Personage("Персонаж", "Первый", "Pers"),
+                new Actor("Актер", "Первый", "Act")},
+            {new Personage("Персонаж", "Второй", "Pers"),
+                new Actor("Актер", "Второй", "Act")}
+        };
+        List<CrewMember> crewMembers = new List<CrewMember>()
+        {
+            new ("Оператор", "Операторов", "Операторович"),
+            new ("Звукорежиссер", "Звукорежиссеров", "Звукорежиссерович"),
+        };
+
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
+        
+        crew.setBusy();
+
+        Assert.AreEqual(Crew.CrewState.Completed, crew.state);
+        crew.disband();
+        Assert.AreEqual(Crew.CrewState.Disbanded, crew.state);
+    }
+
+    [Test]
+    public void CrewDisbandErrorMethodTest()
+    {
+        Crew crew = new Crew();
+        Assert.Catch(crew.disband);
+        
+        try
+        {
+            crew.disband();
+        }
+        catch (Exception e)
+        {
+            string expectedExceptionMessage = "Команда не была собрана";
+            string actualExceptionMessage = e.Message;
+            
+            Assert.AreEqual(expectedExceptionMessage, actualExceptionMessage);
+        }
     }
 
     [Test]
@@ -568,18 +722,19 @@ public class Tests
     {
         string scenName = "Some Movie 2";
         Scenario scenario = new Scenario(scenName);
-        scenario.theme = "theme";
-        scenario.genre = "genre";
-        scenario.screenwriter = new Screenwriter("n", "s", "p");
-        scenario.write();
+        string theme = "theme";
+        string genre = "genre";
+        Screenwriter screenwriter = new Screenwriter("n", "s", "p");
+        IRepository repository = new RepositoryImpl();
+        repository.writeScenario(scenario, screenwriter, genre, theme);
         String name = "name";
         String surname = "surname";
         String patronymic = "patronymic";
         Director director = new Director(name+"Dir", surname+"Dir", patronymic+"Dir");
-        Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
-        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
+        Dictionary<Personage, Actor> roles = repository.cast(scenario, director);
         List<CrewMember> crewMembers = new List<CrewMember>();
-        Crew crew = new Crew(director, screenwriter, roles, crewMembers);
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
 
         Movie movie = new Movie(scenario);
         movie.crew = crew;
@@ -615,5 +770,285 @@ public class Tests
             
             Assert.AreEqual(expectedMessage, actualMessage);
         }
+    }
+
+    [Test]
+    public void MovieFilmWithDifferentPersonagesMethodTest()
+    {
+        string scenName = "Some Movie 2";
+        Scenario scenario = new Scenario(scenName);
+        scenario.theme = "theme";
+        scenario.genre = "genre";
+        scenario.screenwriter = new Screenwriter("n", "s", "p");
+        scenario.write();
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+        Director director = new Director(name+"Dir", surname+"Dir", patronymic+"Dir");
+        Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
+        List<CrewMember> crewMembers = new List<CrewMember>();
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
+
+        Scenario secondScenario = new Scenario("Some Movie 2");
+        secondScenario.theme = "theme";
+        secondScenario.genre = "genre";
+        secondScenario.screenwriter = new Screenwriter("n", "s", "p");
+        secondScenario.write();
+
+        while (scenario.personages == secondScenario.personages)
+        {
+            secondScenario.write();
+        }
+        
+        Movie movie = new Movie(secondScenario);
+        movie.crew = crew;
+
+        Assert.Catch(movie.film);
+        
+        try
+        {
+            movie.film();
+        }
+        catch (Exception e)
+        {
+            string expectedMessage = "Персонажи команды и сценария не совпадают";
+            string actualMessage = e.Message;
+            
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
+        
+    }
+
+    [Test]
+    public void MovieSetReleasedMethodTest()
+    {
+        string scenName = "Some Movie 2";
+        Scenario scenario = new Scenario(scenName);
+        scenario.theme = "theme";
+        scenario.genre = "genre";
+        scenario.screenwriter = new Screenwriter("n", "s", "p");
+        scenario.write();
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+        Director director = new Director(name+"Dir", surname+"Dir", patronymic+"Dir");
+        Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
+        List<CrewMember> crewMembers = new List<CrewMember>();
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
+
+        Movie movie = new Movie(scenario);
+        movie.crew = crew;
+        
+        movie.film();
+        
+        movie.setReleased();
+
+        Movie.MovieState expectedState = Movie.MovieState.Released;
+        
+        Movie.MovieState actualState = movie.state;
+        
+        Assert.AreEqual(expectedState, actualState);
+    }
+
+    [Test]
+    public void RepositoryWriteScenarioMethodTest()
+    {
+        IRepository repository = new RepositoryImpl();
+        
+        string name = "Some Movie 2";
+        Scenario scenario = new Scenario(name);
+        
+        string theme = "theme";
+        string genre = "genre";
+        Screenwriter screenwriter = new Screenwriter("n", "s", "p");
+        
+        repository.writeScenario(scenario, screenwriter, genre, theme);
+        
+        Assert.AreEqual(theme, scenario.theme);
+        Assert.AreEqual(genre, scenario.genre);
+        Assert.AreEqual(screenwriter, scenario.screenwriter);
+        Assert.AreEqual(Scenario.ScenarioState.Finished, scenario.state);
+        Assert.True(scenario.personages.Count != 0);
+    }
+
+    [Test]
+    public void RepositoryCastMethodTest()
+    {
+        IRepository repository = new RepositoryImpl();
+        
+        string name = "Some Movie 2";
+        Scenario scenario = new Scenario(name);
+        
+        string theme = "theme";
+        string genre = "genre";
+        Screenwriter screenwriter = new Screenwriter("n", "s", "p");
+        
+        repository.writeScenario(scenario, screenwriter, genre, theme);
+        Director director = new Director("n", "s", "p");
+
+        Dictionary<Personage, Actor> roles = repository.cast(scenario, director);
+        
+        Assert.Greater(roles.Count, 0);
+        foreach (var actor in roles.Values)
+        {
+            Assert.True(Person.posibleNames.Contains(actor.name));
+            Assert.True(Person.posibleSurname.Contains(actor.surname));
+            Assert.True(Person.posiblePatronymics.Contains(actor.patronymic));
+        }
+    }
+
+    [Test]
+    public void RepositoryCrewUpMethodTest()
+    {
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+
+        //TODO: Переделать на константы
+        
+        Director director = new Director("Режиссер", "Режиссеров", "Режиссерович");
+        Screenwriter screenwriter = new Screenwriter("Сценарист", "Сценаристов", "Сценарстович");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>()
+        {
+            {new Personage("Персонаж", "Первый", "Pers"),
+                new Actor("Актер", "Первый", "Act")},
+            {new Personage("Персонаж", "Второй", "Pers"),
+                new Actor("Актер", "Второй", "Act")}
+        };
+        List<CrewMember> crewMembers = new List<CrewMember>()
+        {
+            new ("Оператор", "Операторов", "Операторович"),
+            new ("Звукорежиссер", "Звукорежиссеров", "Звукорежиссерович"),
+        };
+        
+        IRepository repository = new RepositoryImpl();
+
+        Crew crew = repository.crewUp(director, screenwriter, roles, crewMembers);
+        
+        Assert.AreEqual(director, crew.director);
+        Assert.AreEqual(screenwriter, crew.screenwriter);
+        Assert.AreEqual(roles, crew.roles);
+        Assert.AreEqual(crewMembers, crew.crewMembers);
+        Assert.AreEqual(Crew.CrewState.Completed, crew.state);
+    }
+
+    [Test]
+    public void RepositoryMakeMovieMethodTest()
+    {
+        string scenName = "Some Movie 2";
+        Scenario scenario = new Scenario(scenName);
+        scenario.theme = "theme";
+        scenario.genre = "genre";
+        scenario.screenwriter = new Screenwriter("n", "s", "p");
+        scenario.write();
+        String name = "name";
+        String surname = "surname";
+        String patronymic = "patronymic";
+        Director director = new Director(name+"Dir", surname+"Dir", patronymic+"Dir");
+        Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
+        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
+        List<CrewMember> crewMembers = new List<CrewMember>();
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
+
+        IRepository repository = new RepositoryImpl();
+
+        Movie movie = repository.makeMovie(crew, scenario);
+
+        int maxExpectedDuration = 180;
+        int minExpectedDuration = 20;
+        Movie.MovieState expectedState = Movie.MovieState.Finished;
+        
+        Assert.GreaterOrEqual(maxExpectedDuration, movie.duration);
+        Assert.LessOrEqual(minExpectedDuration, movie.duration);
+        Assert.AreEqual(expectedState, movie.state);
+    }
+
+    [Test]
+    public void RepositoryReleaseMethodTest()
+    {
+        Scenario scenario = new Scenario("name");
+        Movie movie = new Movie(scenario);
+        string cinemaName = "cinemaName";
+        uint maxNumberOfFilms = 20;
+        Cinema cinema = new Cinema(cinemaName, maxNumberOfFilms);
+        Cinema cinema2 = new Cinema(cinemaName, maxNumberOfFilms);
+        Cinema cinema3 = new Cinema(cinemaName, maxNumberOfFilms);
+
+        List<Cinema> cinemas = new List<Cinema>() { cinema, cinema2, cinema3 };
+        
+        foreach (var cinemaV in cinemas)
+        {
+            Assert.False(cinemaV.movies.Contains(movie));
+        }
+        
+        IRepository repository = new RepositoryImpl();
+        repository.release(cinemas, movie);
+
+        foreach (var cinemaV in cinemas)
+        {
+            Assert.True(cinemaV.movies.Contains(movie));
+        }
+        Assert.AreEqual(Movie.MovieState.Released, movie.state);
+    }
+
+    [Test]
+    public void FirstSystemStatesTest()
+    {
+        //1 -> 11 ->  13
+        
+    }
+    
+    [Test]
+    public void SecondSystemStatesTest()
+    {
+        //1 -> 2 -> 3 -> 11 …
+        
+    }
+    
+    [Test]
+    public void ThirdSystemStatesTest()
+    {
+        //1 -> 2 -> 3 -> 4 -> 5 -> 11…
+        
+    }
+    
+    [Test]
+    public void FourthSystemStatesTest()
+    {
+        //1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 11 …
+        
+    }
+    
+    [Test]
+    public void FifthSystemStatesTest()
+    {
+        //1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 11…
+        
+    }
+    
+    [Test]
+    public void SixthSystemStatesTest()
+    {
+        //1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 7 …
+        
+    }
+    
+    [Test]
+    public void SeventhSystemStatesTest()
+    {
+        //1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11…
+        
+    }
+    
+    [Test]
+    public void EightSystemStatesTest()
+    {
+        //1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 12 -> 13
+        
     }
 }

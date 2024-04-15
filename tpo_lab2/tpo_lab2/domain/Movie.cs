@@ -16,7 +16,8 @@ namespace tpo_lab2.domain
         public enum MovieState
         {
             NotReady,
-            Finished
+            Finished,
+            Released
         }
 
         public MovieState state { get; private set; }
@@ -33,19 +34,17 @@ namespace tpo_lab2.domain
             {
                 throw new MissingFieldException("Crew is null!");
             }
+
+            foreach (var role in crew.roles)
+            {
+                if (!scenario.personages.Contains(role.Key))
+                {
+                    throw new Exception("Персонажи команды и сценария не совпадают");
+                }
+            }
+
+            crew.setBusy();
             
-            foreach (var crewMember in crew.crewMembers)
-            {
-                crewMember.setBusy();
-            }
-            foreach (var person2actor in crew.roles)
-            {
-                var actor = person2actor.Value;
-                actor.setBusy();
-            }
-            crew.director.setBusy();
-
-
             for (int i = 0; i < 2000; i++)
             {
                 int randomIndex = Random.Shared.Next(0, scenario.personages.Count);
@@ -59,17 +58,12 @@ namespace tpo_lab2.domain
             
             state = MovieState.Finished;
             duration = Random.Shared.Next(20, 180);
-            
-            foreach (var crewMember in crew.crewMembers)
-            {
-                crewMember.setFree();
-            }
-            foreach (var person2actor in crew.roles)
-            {
-                var actor = person2actor.Value;
-                actor.setFree();
-            }
-            crew.director.setFree();
+            crew.disband();
+        }
+
+        public void setReleased()
+        {
+            state = MovieState.Released;
         }
     }
 }

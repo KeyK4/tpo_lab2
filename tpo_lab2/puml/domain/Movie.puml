@@ -1,0 +1,15 @@
+@startuml
+class Movie {
+    + scenario : Scenario <<get>>
+    + crew : Crew? <<get>> <<set>>
+    + duration : int? <<get>>
+    + state : MovieState <<get>>
+    + Movie(scenario:Scenario)
+    + film() : void
+}
+enum MovieState {
+    NotReady,
+    Finished,
+}
+Movie +-- MovieState
+@enduml

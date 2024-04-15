@@ -10,17 +10,17 @@ namespace tpo_lab2.domain
     {
         public Personage(string name, string surname, string patronymic) : base(name, surname, patronymic)
         {
-            state = State.OffCamera;
+            state = PersState.OffCamera;
         }
 
         public Personage(Person person) : base(person.name, person.surname, person.patronymic)
         {
-            state = State.OffCamera;
+            state = PersState.OffCamera;
         }
 
-        public State state { get; private set; }
+        public PersState state { get; private set; }
 
-        public enum State
+        public enum PersState
         {
             OnCamera,
             OffCamera
@@ -28,19 +28,19 @@ namespace tpo_lab2.domain
 
         public void changeState()
         {
-            if (state == State.OffCamera)
+            if (state == PersState.OffCamera)
             {
-                state = State.OnCamera;
+                state = PersState.OnCamera;
             }
             else
             {
-                state = State.OffCamera;
+                state = PersState.OffCamera;
             }
         }
 
         public void setOffCameraState()
         {
-            state = State.OffCamera;
+            state = PersState.OffCamera;
         }
     }
 }

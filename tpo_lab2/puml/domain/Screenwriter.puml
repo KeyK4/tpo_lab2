@@ -1,0 +1,6 @@
+@startuml
+class Screenwriter {
+    + Screenwriter(name:string, surname:string, patronymic:string)
+}
+CrewMember <|-- Screenwriter
+@enduml

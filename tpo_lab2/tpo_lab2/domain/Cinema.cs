@@ -39,7 +39,7 @@ namespace tpo_lab2.domain
             {
                 state = CinemaState.Open;
             }
-            else throw new WrongStateException("Кинотеатр уже открыт");
+                else throw new WrongStateException("Кинотеатр уже открыт");
         }
 
         public void setClosed()

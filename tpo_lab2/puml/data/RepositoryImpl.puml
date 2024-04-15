@@ -1,0 +1,9 @@
+@startuml
+class RepositoryImpl {
+    + writeScenario(scenario:Scenario, screenwriter:Screenwriter, genre:string, theme:string) : void
+    + cast(scenario:Scenario, director:Director) : Dictionary<Personage, Actor>
+    + makeMovie(crew:Crew, scenario:Scenario) : Movie
+    + release(cinemas:List<Cinema>, movie:Movie) : void
+}
+IRepository <|-- RepositoryImpl
+@enduml

@@ -14,6 +14,10 @@ public class RepositoryImpl : IRepository
 
     public Dictionary<Personage, Actor> cast(Scenario scenario, Director director)
     {
+        if (scenario.state != Scenario.ScenarioState.Finished)
+        {
+            throw new Exception("Сценарий еще не готов");
+        }
         var cast = new Dictionary<Personage, Actor>();
         foreach (var personage in scenario.personages)
         {
@@ -22,6 +26,13 @@ public class RepositoryImpl : IRepository
         }
 
         return cast;
+    }
+
+    public Crew crewUp(Director director, Screenwriter screenwriter, Dictionary<Personage, Actor> roles, List<CrewMember> crewMembers)
+    {
+        Crew crew = new Crew();
+        crew.crewUp(director, screenwriter, roles, crewMembers);
+        return crew;
     }
 
     public Movie makeMovie(Crew crew, Scenario scenario)
@@ -34,6 +45,7 @@ public class RepositoryImpl : IRepository
 
     public void release(List<Cinema> cinemas, Movie movie)
     {
+        movie.setReleased();
         foreach (var cinema in cinemas)
         {
             cinema.addMovie(movie);

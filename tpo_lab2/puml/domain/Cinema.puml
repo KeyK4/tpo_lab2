@@ -1,0 +1,22 @@
+@startuml
+class Cinema {
+    + name : string <<get>>
+    + movies : List<Movie> <<get>>
+    + maxMoviesNumber : uint <<get>>
+    + state : CinemaState <<get>>
+    + Cinema(name:string, maxMoviesNumber:uint)
+    + addMovie(movie:Movie) : void
+    + setOpen() : void
+    + setClosed() : void
+}
+class WrongStateException {
+    + WrongStateException(message:string)
+}
+enum CinemaState {
+    Open,
+    Closed,
+}
+Cinema +-- WrongStateException
+Exception <|-- WrongStateException
+Cinema +-- CinemaState
+@enduml

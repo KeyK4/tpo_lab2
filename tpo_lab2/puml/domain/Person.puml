@@ -1,0 +1,14 @@
+@startuml
+class Person {
+    + name : string <<get>>
+    + surname : string <<get>>
+    + patronymic : string <<get>>
+    + Person(name:string, surname:string, patronymic:string)
+    - Person()
+    + toStringName() : string
+    + {static} posibleNames : List<string>
+    + {static} posiblePatronymics : List<string>
+    + {static} posibleSurname : List<string>
+    + {static} getRandomPerson() : Person
+}
+@enduml

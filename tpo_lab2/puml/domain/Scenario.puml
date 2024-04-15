@@ -1,0 +1,19 @@
+@startuml
+class Scenario {
+    + Scenario(name:string)
+    - Scenario()
+    + name : string <<get>>
+    + theme : string? <<get>> <<set>>
+    + genre : string? <<get>> <<set>>
+    + screenwriter : Screenwriter? <<get>> <<set>>
+    + personages : List<Personage>? <<get>>
+    + state : ScenarioState <<get>>
+    + write() : void
+    + generatePersonages() : List<Personage>
+}
+enum ScenarioState {
+    NotReady,
+    Finished,
+}
+Scenario +-- ScenarioState
+@enduml

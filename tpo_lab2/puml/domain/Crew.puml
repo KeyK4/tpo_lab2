@@ -1,0 +1,10 @@
+@startuml
+class Crew {
+    + director : Director <<get>>
+    + screenwriter : Screenwriter <<get>>
+    + roles : Dictionary<Personage, Actor> <<get>>
+    + crewMembers : List<CrewMember> <<get>>
+    + Crew(director:Director, screenwriter:Screenwriter, roles:Dictionary<Personage, Actor>, crewMembers:List<CrewMember>)
+    + getСredits() : string
+}
+@enduml

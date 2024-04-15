@@ -1,0 +1,15 @@
+@startuml
+!include .\data\RepositoryImpl.puml
+!include .\domain\Actor.puml
+!include .\domain\Cinema.puml
+!include .\domain\Crew.puml
+!include .\domain\CrewMember.puml
+!include .\domain\Director.puml
+!include .\domain\IRepository.puml
+!include .\domain\Movie.puml
+!include .\domain\Person.puml
+!include .\domain\Personage.puml
+!include .\domain\Scenario.puml
+!include .\domain\Screenwriter.puml
+!include .\presentation\Program.puml
+@enduml

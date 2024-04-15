@@ -1,0 +1,19 @@
+@startuml
+class CrewMember {
+    + CrewMember(name:string, surname:string, patronymic:string)
+    + state : State <<get>>
+    + setBusy() : void
+    + setFree() : void
+}
+enum State {
+    Free,
+    Busy,
+}
+class WrongStateException {
+    + WrongStateException(message:string)
+}
+Person <|-- CrewMember
+CrewMember +-- State
+CrewMember +-- WrongStateException
+Exception <|-- WrongStateException
+@enduml

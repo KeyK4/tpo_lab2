@@ -1,0 +1,8 @@
+@startuml
+interface IRepository {
+    writeScenario(scenario:Scenario, screenwriter:Screenwriter, genre:String, theme:String) : void
+    cast(scenario:Scenario, director:Director) : Dictionary<Personage, Actor>
+    makeMovie(crew:Crew, scenario:Scenario) : Movie
+    release(cinemas:List<Cinema>, movie:Movie) : void
+}
+@enduml

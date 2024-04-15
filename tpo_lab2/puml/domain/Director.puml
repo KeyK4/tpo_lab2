@@ -1,0 +1,7 @@
+@startuml
+class Director {
+    + Director(name:string, surname:string, patronymic:string)
+    + cast(personage:Personage) : Actor
+}
+CrewMember <|-- Director
+@enduml

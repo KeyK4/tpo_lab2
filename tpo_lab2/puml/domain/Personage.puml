@@ -1,0 +1,15 @@
+@startuml
+class Personage {
+    + Personage(name:string, surname:string, patronymic:string)
+    + Personage(person:Person)
+    + state : PersState <<get>>
+    + changeState() : void
+    + setOffCameraState() : void
+}
+enum PersState {
+    OnCamera,
+    OffCamera,
+}
+Person <|-- Personage
+Personage +-- PersState
+@enduml
