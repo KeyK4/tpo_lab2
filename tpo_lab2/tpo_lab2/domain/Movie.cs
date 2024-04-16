@@ -34,13 +34,18 @@ namespace tpo_lab2.domain
             {
                 throw new MissingFieldException("Crew is null!");
             }
-
-            foreach (var role in crew.roles)
+            
+            if(crew.roles.Count == 0)
             {
-                if (!scenario.personages.Contains(role.Key))
-                {
-                    throw new Exception("Персонажи команды и сценария не совпадают");
-                }
+                throw new Exception("Персонажи команды и сценария не совпадают или пусты");
+            }
+
+            var kHS = crew.roles.Keys.ToHashSet();
+            var pHS = scenario.personages.ToHashSet();
+            
+            if (kHS.Except(pHS).Concat(pHS.Except(kHS)).Count() != 0)
+            {
+                throw new Exception("Персонажи команды и сценария не совпадают или пусты");
             }
 
             crew.setBusy();

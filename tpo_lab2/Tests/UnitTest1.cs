@@ -813,7 +813,7 @@ public class Tests
         }
         catch (Exception e)
         {
-            string expectedMessage = "Персонажи команды и сценария не совпадают";
+            string expectedMessage = "Персонажи команды и сценария не совпадают или пусты";
             string actualMessage = e.Message;
             
             Assert.AreEqual(expectedMessage, actualMessage);
@@ -826,16 +826,16 @@ public class Tests
     {
         string scenName = "Some Movie 2";
         Scenario scenario = new Scenario(scenName);
-        scenario.theme = "theme";
-        scenario.genre = "genre";
-        scenario.screenwriter = new Screenwriter("n", "s", "p");
-        scenario.write();
+        string theme = "theme";
+        string genre = "genre";
+        Screenwriter screenwriter = new Screenwriter("n", "s", "p");
+        IRepository repository = new RepositoryImpl();
+        repository.writeScenario(scenario, screenwriter, genre, theme);
         String name = "name";
         String surname = "surname";
         String patronymic = "patronymic";
         Director director = new Director(name+"Dir", surname+"Dir", patronymic+"Dir");
-        Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
-        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
+        Dictionary<Personage, Actor> roles = repository.cast(scenario, director);
         List<CrewMember> crewMembers = new List<CrewMember>();
         Crew crew = new Crew();
         crew.crewUp(director, screenwriter, roles, crewMembers);
@@ -941,22 +941,18 @@ public class Tests
     {
         string scenName = "Some Movie 2";
         Scenario scenario = new Scenario(scenName);
-        scenario.theme = "theme";
-        scenario.genre = "genre";
-        scenario.screenwriter = new Screenwriter("n", "s", "p");
-        scenario.write();
+        string theme = "theme";
+        string genre = "genre";
+        Screenwriter screenwriter = new Screenwriter("n", "s", "p");
+        IRepository repository = new RepositoryImpl();
+        repository.writeScenario(scenario, screenwriter, genre, theme);
         String name = "name";
         String surname = "surname";
         String patronymic = "patronymic";
         Director director = new Director(name+"Dir", surname+"Dir", patronymic+"Dir");
-        Screenwriter screenwriter = new Screenwriter(name+"SW", surname+"SW", patronymic+"SW");
-        Dictionary<Personage, Actor> roles = new Dictionary<Personage, Actor>();
+        Dictionary<Personage, Actor> roles = repository.cast(scenario, director);
         List<CrewMember> crewMembers = new List<CrewMember>();
-        Crew crew = new Crew();
-        crew.crewUp(director, screenwriter, roles, crewMembers);
-
-        IRepository repository = new RepositoryImpl();
-
+        Crew crew = repository.crewUp(director, screenwriter, roles, crewMembers);
         Movie movie = repository.makeMovie(crew, scenario);
 
         int maxExpectedDuration = 180;
