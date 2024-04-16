@@ -50,7 +50,6 @@ namespace tpo_lab2.domain
             }
             screenwriter.setBusy();
             personages = generatePersonages();
-            Thread.Sleep(5000);
             state = ScenarioState.Finished;
             screenwriter.setFree();
         }

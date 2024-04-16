@@ -23,6 +23,11 @@ namespace tpo_lab2.domain
 
         public void addMovie(Movie movie)
         {
+            if (state != CinemaState.Open)
+            {
+                throw new Exception("Кинотеатр не открыт");
+            }
+            
             if (movies.Count < maxMoviesNumber)
             {
                 movies.Add(movie);
